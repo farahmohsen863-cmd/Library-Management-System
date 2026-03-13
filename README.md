@@ -18,4 +18,5 @@ This project is a simple Library Management System built using python.
   - Conditions
 
   ## Developed by
-  Farah
+  Farah Mohsen
+  Computer Science Student 
