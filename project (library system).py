@@ -18,7 +18,7 @@ class Book:
         print("Author:", self.author)
 
         if self.available:
-            print("Starus: Avilable")
+            print("Status: Available")
         else:
             print("Status: Borrowed")
 
@@ -30,6 +30,11 @@ class Book:
  # -----------------------------------------
 books = []
 
+Library_info = {
+    "name": "My Library",
+    "total_books": 0
+}
+
 # -----------------------------------------
 # Add Book
 # -----------------------------------------
@@ -38,6 +43,11 @@ def add_book():
     title = input("Enter book title: ")
     author = input("Enter author name: ")
 
+    for b in books:
+        if b.title.lower() == title.lower() :
+            print("Book already existi.")
+            return
+        
     book = Book(title, author)
 
     books.append(book)
@@ -56,7 +66,7 @@ def show_all_books():
         return
 
     for b in books:
-        n.show_info()
+        b.show_info()
 
 # -----------------------------------------
 # Search Book
@@ -84,7 +94,7 @@ def delete_book():
 
             books.remove(b)
 
-            library_info["total_books"] -= 1
+            Library_info["total_books"] -= 1
 
             print("Book deleted successfuly.")
             return
@@ -141,8 +151,8 @@ def return_book():
 def show_library_info():
 
     print("\n--- Library Info ---")
-    print("Library Name:", library_info["name"])
-    print("Total Books:", library_info["total_books"])
+    print("Library Name:", Library_info["name"])
+    print("Total Books:", Library_info["total_books"])
 
 # -----------------------------------------
 # Main Menu
